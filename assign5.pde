@@ -559,7 +559,7 @@ void drawTimerUI(){
   text(timeString, 3, height + 3);
 
   // Actual Time Text
-  color timeTextColor = #ffffff;     // Requirement #5: Get the correct color using color getTimeTextColor(int frames)
+  color timeTextColor = getTimeTextColor(gameTimer);     // Requirement #5: Get the correct color using color getTimeTextColor(int frames)
   fill(timeTextColor);
   text(timeString, 0, height);
 }
@@ -589,7 +589,24 @@ String convertFramesToTimeString(int frames){  // Requirement #4
 }
 
 color getTimeTextColor(int frames){        // Requirement #5
-  return #ffffff;
+  int textColor=0;
+  if(frames>=7200){
+    textColor= #00ffff;
+  }
+  
+  if(frames>=3600 && frames<7200){
+    textColor= #ffffff;
+  }
+  if(frames>=1800 && frames<3600){
+    textColor= #ffcc00;
+  }
+    if(frames>=600 && frames<1800){
+    textColor= #ff6600;
+  }
+    if(frames<600){
+    textColor= #ff0000;
+  }
+  return textColor;
 }
 
 int getEnemyIndexByRow(int row){        // Requirement #6
