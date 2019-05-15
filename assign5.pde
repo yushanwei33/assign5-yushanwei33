@@ -582,8 +582,8 @@ boolean isHit(float ax, float ay, float aw, float ah, float bx, float by, float 
 }
 
 String convertFramesToTimeString(int frames){  // Requirement #4
-  String sec=nf(gameTimer/60%60,2);
-  String min=nf(gameTimer/60/60,2);
+  String sec=nf(int(gameTimer/60%60),2);
+  String min=nf(int(gameTimer/60/60),2);
   
   return min+":"+sec;
 }
